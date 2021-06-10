@@ -2,12 +2,34 @@ package br.com.caelum.ingresso.model;
 
 import java.time.LocalTime;
 
-public class Sessao {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
-	public Integer id;
-	public LocalTime horario;
-	public Sala sala;
-	public Filme filme;
+@Entity
+public class Sessao {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
+	@NotNull
+	private LocalTime horario;
+	
+	@ManyToOne
+	private Sala sala;
+	
+	@ManyToOne
+	private Filme filme;	
+	
+	/**
+	* @deprecated hibernate only
+	*/
+	public Sessao() {		
+	}
 
 	public Sessao(LocalTime horario, Sala sala, Filme filme) {
 		this.horario = horario;
