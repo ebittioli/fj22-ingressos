@@ -27,20 +27,20 @@ public class GerenciadorDeSessao {
 	private boolean terminaAmanha(Sessao sessao) {
 		
 		LocalDateTime terminoSessaoNova = getTerminoSessaoComDiaDeHoje(sessao);
-		LocalDateTime ultimoSegunfoDeHoje = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
+		LocalDateTime ultimoSegundoDeHoje = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
 		
-		if (terminoSessaoNova.isAfter(ultimoSegunfoDeHoje)) {
+		if (terminoSessaoNova.isAfter(ultimoSegundoDeHoje)) {
 			return true;			
 		}
 		return false;
 	}
 	
-	private boolean horarioIsConflitante(Sessao sessaoExistente, Sessao sessaNova) {
+	private boolean horarioIsConflitante(Sessao sessaoExistente, Sessao sessaoNova) {
 		
 		LocalDateTime inicioSessaoExistente = getInicioSessaoComDiaDeHoje(sessaoExistente);
 		LocalDateTime terminoSessaoExistente = getTerminoSessaoComDiaDeHoje(sessaoExistente);
-		LocalDateTime inicioSessaoNova = getInicioSessaoComDiaDeHoje(sessaoExistente);
-		LocalDateTime terminoSessaoNova = getTerminoSessaoComDiaDeHoje(sessaoExistente);
+		LocalDateTime inicioSessaoNova = getInicioSessaoComDiaDeHoje(sessaoNova);
+		LocalDateTime terminoSessaoNova = getTerminoSessaoComDiaDeHoje(sessaoNova);
 		
 		boolean sessaoNovaTerminaAntesDaExistente = terminoSessaoNova.isBefore(inicioSessaoExistente);
 		boolean sessaoNovaComecaDepoisDaExistente = terminoSessaoExistente.isBefore(inicioSessaoNova);
