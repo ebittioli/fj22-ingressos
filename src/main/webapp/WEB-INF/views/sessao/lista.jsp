@@ -28,9 +28,9 @@
                     <td>${sessao.filme.duracao.toMinutes()}</td>
 <%--                     <td>${sessao.preco}</td> --%>
 
-                    <td>
+                <%--     <td>
                         <a onclick="excluir(${sessao.id})" class="btn btn-danger">Excluir</a>
-                    </td>
+                    </td>--%>
                 </tr>
             </c:forEach>
             </tbody>
