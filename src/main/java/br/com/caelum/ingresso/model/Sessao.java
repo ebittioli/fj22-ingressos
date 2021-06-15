@@ -73,4 +73,12 @@ public class Sessao {
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 }
